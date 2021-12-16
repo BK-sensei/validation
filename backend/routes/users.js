@@ -34,7 +34,10 @@ app.post('/',
         if(errors.lenght > 0) {
             res.status(400).json({errors})
         } else {
-            const user = req.body
+            const user = {
+                slug: req.body.name.toLowerCase().replace(/[^\w]/gi, '-'),
+                ...req.body
+            }
             users = [...users, user]
             res.json(user)
         }
