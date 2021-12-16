@@ -19,6 +19,9 @@ const Home = () => {
     return (
         <Container>
             <h1>Users</h1>
+            <Link to='/users/create-user'>
+                <button>Create user</button>
+            </Link>
             <Grid>
                 {users.map(user => (
                     <GridItem  key={user.slug}>

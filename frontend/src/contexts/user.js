@@ -17,9 +17,22 @@ const UserContextProvider = ({ children }) => {
         .then(data => data)
     }
 
+    const createUser = body => {
+        return fetch (`${apiUrl}`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(data => data)
+    }
+
     const value = {
         getUsers,
-        getUser
+        getUser,
+        createUser
     }
 
     return (
